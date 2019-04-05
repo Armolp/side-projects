@@ -12,6 +12,7 @@ const mirror = true;
 let img;
 let pattern;
 let offset = {x: 50, y: 10};
+let h3 = h2 - 152;
 let patternStroke = "#41062e";
 
 window.onclick = function() {
@@ -23,6 +24,7 @@ window.onresize = function() {
     h = canvas.height = window.innerHeight;
     w2 = w/2;
     h2 = h/2;
+    h3 = h2 - 152;
 };
 window.onmousemove = function(e) {
 	offset.x += img.width * (e.movementX / w);
@@ -49,7 +51,7 @@ function loop() {
 	for(let i=0; i<slices; i++) {
         
         // draw the damn thing
-        ctx.translate(w2, h2);
+        ctx.translate(w2, h3);
         ctx.rotate(i * deltaAngle);
         ctx.translate(offset.x, offset.y);
         ctx.beginPath();
@@ -62,7 +64,7 @@ function loop() {
         ctx.resetTransform();
 
         if (mirror) {
-            ctx.translate(w2, h2);
+            ctx.translate(w2, h3);
             
             ctx.rotate((i-1) * deltaAngle);
             ctx.scale(-1, 1);
