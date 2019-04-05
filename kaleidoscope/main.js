@@ -3,7 +3,9 @@ let ctx = canvas.getContext("2d", { alpha: false });
 let w = canvas.width = window.innerWidth;
 let h = canvas.height = window.innerHeight;
 let w2 = w/2 , h2 = h/2;
-const {PI,sin,cos} = Math;
+const PI = Math.PI;
+const cos = Math.cos;
+const sin = Math.sin;
 const PI2 = PI*2;
 
 const slices = 50;
@@ -61,7 +63,8 @@ function loop() {
         ctx.lineTo(x[0]-offset.x, y[0]-offset.y);
         ctx.fillStyle = pattern;
         ctx.fill();
-        ctx.resetTransform();
+        
+        ctx.setTransform(1,0,0,1,0,0);
 
         if (mirror) {
             ctx.translate(w2, h3);
@@ -78,14 +81,14 @@ function loop() {
             ctx.fillStyle = pattern;
             ctx.fill();
             
-            ctx.resetTransform();
+            ctx.setTransform(1,0,0,1,0,0);
         }
 	}
 	offset.x = (offset.x + 0.75) % img.width;
     offset.y = (offset.y + 0.25) % img.height;
 
 	// loop
-	requestAnimationFrame(loop);
+    requestAnimationFrame(loop);
 }
 function drawDot(x, y, r=4, fillStyle="tomato") {
 	ctx.beginPath();
