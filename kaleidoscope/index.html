@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>kaleidoscope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { 
+            overflow: hidden;
+            margin: 0;
+        }
+        canvas { position: absolute; }
+        img {
+            position: absolute;
+            max-width: 600px;
+            top: calc(50% + 152px);
+            left: calc(50% + 44px);
+            transform: translate(-50%, -50%);
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c"></canvas>
+    <img src="marco.png" alt="">
+    <script src="main.js"></script>
+</body>
+</html>
